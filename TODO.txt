@@ -1,0 +1,10 @@
+TODO
+  criar tela inicial
+  criar componente de rotas
+
+
+DOING
+  ajustar topBar de acordo com o protótipo  
+
+DONE
+  criar componente de tema com cor primaria
