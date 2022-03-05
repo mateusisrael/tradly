@@ -11,7 +11,7 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       height: 46,
       decoration: const BoxDecoration(
         boxShadow: [

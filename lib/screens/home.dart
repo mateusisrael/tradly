@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/search_bar.dart';
 
 class Home extends StatelessWidget {
@@ -7,7 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [SubStatusBar()],
+      children: const [SubStatusBar(), CardsScrow()],
     );
   }
 }
@@ -28,6 +29,6 @@ class SubStatusBar extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
         ),
-        child: Column(children: [SearchBar()]));
+        child: Column(children: const [SearchBar()]));
   }
 }

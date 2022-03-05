@@ -5,4 +5,5 @@ var defaultTheme = ThemeData(
         backgroundColor: Color(0xff33907C),
         toolbarTextStyle: TextStyle(fontSize: 24, color: Colors.amber)),
     brightness: Brightness.light,
-    primaryColor: const Color(0xff33907C));
+    primaryColor: const Color(0xff33907C),
+    scaffoldBackgroundColor: const Color(0xffF6F9FF));

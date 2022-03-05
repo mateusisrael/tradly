@@ -2,13 +2,13 @@ TODO
   Estilizr fontes de acordo com protótipo
   Add ícones de acordo com protótipo
   criar componente de rotas
-  criar componentes da tela inicial
 
 
 DOING
-  Add sombra na caixa de pesquisa, de acordo com o protótipo
+  criar componentes da tela inicial
 
 
 DONE
   criar componente de tema com cor primaria
   ajustar topBar de acordo com o protótipo 
+  Add sombra na caixa de pesquisa, de acordo com o protótipo
