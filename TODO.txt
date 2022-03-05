@@ -1,10 +1,14 @@
 TODO
-  criar tela inicial
+  Estilizr fontes de acordo com protótipo
+  Add ícones de acordo com protótipo
   criar componente de rotas
+  criar componentes da tela inicial
 
 
 DOING
-  ajustar topBar de acordo com o protótipo  
+  Add sombra na caixa de pesquisa, de acordo com o protótipo
+
 
 DONE
   criar componente de tema com cor primaria
+  ajustar topBar de acordo com o protótipo 
