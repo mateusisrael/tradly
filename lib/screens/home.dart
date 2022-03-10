@@ -8,7 +8,66 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [SubStatusBar(), CardsScrow()],
+      children: [
+        const SubStatusBar(),
+        const CardsScrow(),
+        GridView.count(
+          primary: false,
+          shrinkWrap: true,
+          // padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 1,
+          mainAxisSpacing: 1,
+          crossAxisCount: 4,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.green[200],
+                  image: const DecorationImage(
+                      image: AssetImage('images/beverages.jpeg'))),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.green[200],
+                  image: const DecorationImage(
+                      image: AssetImage('images/bread-and-bakery.jpeg'))),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.green[200]),
+              width: 90,
+              height: 90,
+            ),
+          ],
+        )
+      ],
     );
   }
 }

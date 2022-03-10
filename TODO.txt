@@ -5,7 +5,7 @@ TODO
 
 
 DOING
-  criar componentes da tela inicial
+  criar componente de grid da tela inicial
 
 
 DONE
