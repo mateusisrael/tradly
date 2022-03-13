@@ -30,29 +30,31 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SubStatusBar(),
-        const CardsScrow(),
-        GridView.count(
-          primary: false,
-          shrinkWrap: true,
-          // padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 1,
-          crossAxisCount: 4,
-          children: [
-            _gridContent('images/beverages.jpeg', 'Beverages'),
-            _gridContent('images/bread-and-bakery.jpeg', 'Bread & Bakery'),
-            _gridContent('images/vegetables.jpeg', 'Vegetables'),
-            _gridContent('images/fruit.jpeg', 'Fruit'),
-            _gridContent('images/egg.jpeg', 'Egg'),
-            _gridContent('images/frozen-veg.jpeg', 'Frozen veg'),
-            _gridContent('images/home-care.jpeg', 'Homecare'),
-            _gridContent('images/pet-care.jpeg', 'Pet Care'),
-          ],
-        )
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SubStatusBar(),
+          const CardsScrow(),
+          GridView.count(
+            primary: false,
+            shrinkWrap: true,
+            // padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 1,
+            mainAxisSpacing: 1,
+            crossAxisCount: 4,
+            children: [
+              _gridContent('images/beverages.jpeg', 'Beverages'),
+              _gridContent('images/bread-and-bakery.jpeg', 'Bread & Bakery'),
+              _gridContent('images/vegetables.jpeg', 'Vegetables'),
+              _gridContent('images/fruit.jpeg', 'Fruit'),
+              _gridContent('images/egg.jpeg', 'Egg'),
+              _gridContent('images/frozen-veg.jpeg', 'Frozen veg'),
+              _gridContent('images/home-care.jpeg', 'Homecare'),
+              _gridContent('images/pet-care.jpeg', 'Pet Care'),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
