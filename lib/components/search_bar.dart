@@ -36,10 +36,10 @@ class _SearchBarState extends State<SearchBar> {
             child: TextField(
               decoration: InputDecoration(
                   hintStyle: TextStyle(
-                    color: Color.fromRGBO(79, 79, 79, 0.2),
-                    fontSize: 14,
-                  ),
-                  hintText: 'Search campaign',
+                      color: Color.fromRGBO(79, 79, 79, 0.2),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                  hintText: 'Search Product',
                   border: InputBorder.none),
             ),
           ))

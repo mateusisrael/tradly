@@ -35,7 +35,7 @@ class TradlyApp extends StatelessWidget {
             systemOverlayStyle: SystemUiOverlayStyle.light,
             title: const Text(
               'Groceries',
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             )),
         body: const Home(),
       ),
