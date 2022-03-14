@@ -1,14 +1,17 @@
 TODO
-  Estilizr fontes de acordo com protótipo
   Add ícones de acordo com protótipo
   criar componente de rotas
+  criar navigation bar
 
 
 DOING
-  criar componente de grid da tela inicial
+  Setar a cor do botão "view all" de acordo com o atributo hasBackgroundColor
+  criar componente de lista de produtos/lojas da home
 
 
 DONE
   criar componente de tema com cor primaria
   ajustar topBar de acordo com o protótipo 
   Add sombra na caixa de pesquisa, de acordo com o protótipo
+  Estilizr fontes de acordo com protótipo
+  criar componente de grid da tela inicial

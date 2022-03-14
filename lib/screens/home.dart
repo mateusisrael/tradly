@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_tradly/components/category_group.dart';
 import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/search_bar.dart';
 
@@ -52,6 +53,15 @@ class Home extends StatelessWidget {
               _gridContent('images/home-care.jpeg', 'Homecare'),
               _gridContent('images/pet-care.jpeg', 'Pet Care'),
             ],
+          ),
+          const CategoryGroup(
+            title: 'New Product',
+          ),
+          const CategoryGroup(title: 'Popular Product'),
+          const CategoryGroup(
+              title: 'Store to follow', hasBackgroundColor: true),
+          Container(
+            height: 90,
           )
         ],
       ),
