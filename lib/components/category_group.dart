@@ -39,17 +39,20 @@ class CategoryGroup extends StatelessWidget {
     }
   }
 
-  Color _renderButtonColor(BuildContext context) {
+  Color _renderButtonColor(Color primaryColor) {
     if (hasBackgroundColor != null && hasBackgroundColor == true) {
       return const Color(0xffffffff);
     }
-    return Theme.of(context).primaryColor;
+    return primaryColor;
   }
 
-  Color _renderButtonTextColor(BuildContext context) {
-    if (hasBackgroundColor != null && hasBackgroundColor == true) {
-      return Theme.of(context).primaryColor;
+  Color _renderButtonTextColor(Color primaryColor) {
+    final buttonTextColorIsPrimary =
+        hasBackgroundColor != null && hasBackgroundColor == true;
+    if (buttonTextColorIsPrimary) {
+      return primaryColor;
     }
+
     return const Color(0xffffffff);
   }
 
@@ -74,8 +77,8 @@ class CategoryGroup extends StatelessWidget {
                       _renderText(),
                       TextButton(
                           style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(TextStyle(
-                                  color: _renderButtonTextColor(context))),
+                              textStyle: MaterialStateProperty.all(
+                                  const TextStyle(fontSize: 12)),
                               shape: MaterialStateProperty.all(
                                   const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(
@@ -83,9 +86,15 @@ class CategoryGroup extends StatelessWidget {
                               fixedSize:
                                   MaterialStateProperty.all(const Size(87, 23)),
                               backgroundColor: MaterialStateProperty.all(
-                                  _renderButtonColor(context))),
+                                  _renderButtonColor(
+                                      Theme.of(context).primaryColor))),
                           onPressed: () {},
-                          child: const Text('View all'))
+                          child: Text(
+                            'View all',
+                            style: TextStyle(
+                                color: _renderButtonTextColor(
+                                    Theme.of(context).primaryColor)),
+                          ))
                     ],
                   ),
                 ),
