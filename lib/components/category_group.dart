@@ -9,13 +9,22 @@ class CategoryGroup extends StatelessWidget {
       : super(key: key);
 
   _box() {
+    const BorderSide cardBorder = BorderSide(
+        color: Color.fromRGBO(0, 0, 0, 0.1),
+        width: 1,
+        style: BorderStyle.solid);
     return Container(
       margin: const EdgeInsets.only(right: 10, left: 10),
       width: 160,
       height: 200,
-      decoration: BoxDecoration(
-          color: Colors.green[100],
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          border: Border(
+              top: cardBorder,
+              right: cardBorder,
+              bottom: cardBorder,
+              left: cardBorder),
+          borderRadius: BorderRadius.all(Radius.circular(10))),
     );
   }
 
