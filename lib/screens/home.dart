@@ -8,25 +8,24 @@ class Home extends StatelessWidget {
 
   _gridContent(String imagePath, String title) {
     return Container(
-      decoration: BoxDecoration(
-          color: const Color(0xff000000),
-          image: DecorationImage(
-              opacity: 0.7,
-              fit: BoxFit.cover,
-              alignment: Alignment.center,
-              image: AssetImage(imagePath))),
-      width: 90,
-      height: 90,
-      child: Center(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: const Color(0xff000000),
+            image: DecorationImage(
+                opacity: 0.7,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                image: AssetImage(imagePath))),
+        width: 90,
+        height: 90,
         child: Text(
           title,
+          textAlign: TextAlign.center,
           style: const TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
               color: Color(0xffffffff)),
-        ),
-      ),
-    );
+        ));
   }
 
   @override
