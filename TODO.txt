@@ -5,11 +5,11 @@ TODO
 
 
 DOING
-  Setar a cor do botão "view all" de acordo com o atributo hasBackgroundColor
   criar componente de lista de produtos/lojas da home
 
 
 DONE
+  Setar a cor do botão "view all" de acordo com o atributo hasBackgroundColor
   criar componente de tema com cor primaria
   ajustar topBar de acordo com o protótipo 
   Add sombra na caixa de pesquisa, de acordo com o protótipo
