@@ -74,7 +74,8 @@ class CategoryGroup extends StatelessWidget {
                           const Text(
                             'Tradly',
                             style: TextStyle(
-                                color: Color(0xff4F4F4F), fontSize: 14),
+                                color: Color.fromRGBO(79, 79, 79, .5),
+                                fontSize: 14),
                           )
                         ],
                       ),

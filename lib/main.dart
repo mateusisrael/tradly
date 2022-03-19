@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'themes/default_theme.dart';
-
+import 'components/bottom_navigation_bar.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -37,6 +37,7 @@ class TradlyApp extends StatelessWidget {
               'Groceries',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             )),
+        bottomNavigationBar: const AppBottomNavigationBar(),
         body: const Home(),
       ),
     );

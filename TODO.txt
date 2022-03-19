@@ -1,11 +1,10 @@
 TODO
-  Add ícones de acordo com protótipo
   criar componente de rotas
-  criar navigation bar
-
+  Add ícones de acordo com protótipo
+  ajuste no layout do componente de lista de lojas loja
+  bottom navigation bar - ajustar o padding do ícone quando ele está ativo
 
 DOING
-  criar componente de lista de produtos/lojas da home
 
 
 DONE
@@ -15,3 +14,5 @@ DONE
   Add sombra na caixa de pesquisa, de acordo com o protótipo
   Estilizr fontes de acordo com protótipo
   criar componente de grid da tela inicial
+  criar componente de lista de produtos/lojas da home
+  criar bottom navigation bar
