@@ -54,7 +54,7 @@ class CardsScrow extends StatelessWidget {
               padding: const EdgeInsets.only(top: 51, left: 17, right: 80),
               child: Column(
                 children: [
-                  Text('Ready to deliver to your home'.toUpperCase(),
+                  Text('The benefits of healthy eating'.toUpperCase(),
                       style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -80,7 +80,7 @@ class CardsScrow extends StatelessWidget {
               padding: const EdgeInsets.only(top: 51, left: 17, right: 80),
               child: Column(
                 children: [
-                  Text('Ready to deliver to your home'.toUpperCase(),
+                  Text('Fresh fruits and vegetables'.toUpperCase(),
                       style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
