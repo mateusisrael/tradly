@@ -24,6 +24,19 @@ class CardsScrow extends StatelessWidget {
                   opacity: 0.6),
               color: Colors.black,
             ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 51, left: 17, right: 80),
+              child: Column(
+                children: [
+                  Text('Ready to deliver to your home'.toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2,
+                          color: Colors.white))
+                ],
+              ),
+            ),
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 7),
@@ -33,9 +46,22 @@ class CardsScrow extends StatelessWidget {
               image: DecorationImage(
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.topLeft,
-                  image: AssetImage('images/card1.jpeg'),
+                  image: AssetImage('images/comer-saudavel.jpg'),
                   opacity: 0.6),
               color: Colors.black,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 51, left: 17, right: 80),
+              child: Column(
+                children: [
+                  Text('Ready to deliver to your home'.toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2,
+                          color: Colors.white))
+                ],
+              ),
             ),
           ),
           Container(
@@ -46,9 +72,22 @@ class CardsScrow extends StatelessWidget {
               image: DecorationImage(
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.topLeft,
-                  image: AssetImage('images/card1.jpeg'),
+                  image: AssetImage('images/comer-saudavel2.jpg'),
                   opacity: 0.6),
               color: Colors.black,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 51, left: 17, right: 80),
+              child: Column(
+                children: [
+                  Text('Ready to deliver to your home'.toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2,
+                          color: Colors.white))
+                ],
+              ),
             ),
           ),
         ],

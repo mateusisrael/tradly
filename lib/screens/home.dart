@@ -57,8 +57,6 @@ class Home extends StatelessWidget {
             title: 'New Product',
           ),
           const CategoryGroup(title: 'Popular Product'),
-          const CategoryGroup(
-              title: 'Store to follow', hasBackgroundColor: true),
           Container(
             height: 90,
           )

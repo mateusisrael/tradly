@@ -1,10 +1,12 @@
 TODO
-  criar componente de rotas
+  
   Add ícones de acordo com protótipo
   ajuste no layout do componente de lista de lojas loja
   bottom navigation bar - ajustar o padding do ícone quando ele está ativo
 
 DOING
+  Remover o grupo "store to follow" da home
+  criar componente de rotas
 
 
 DONE
