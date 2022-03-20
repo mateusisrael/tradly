@@ -13,7 +13,7 @@ class CardsScrow extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 7),
+            margin: const EdgeInsets.only(left: 16, right: 7),
             width: 302,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -39,7 +39,7 @@ class CardsScrow extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 7),
+            margin: const EdgeInsets.only(left: 7, right: 16),
             width: 302,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
