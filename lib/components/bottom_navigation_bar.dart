@@ -13,6 +13,7 @@ class AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       showUnselectedLabels: true,
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: unselectedItemColor,
