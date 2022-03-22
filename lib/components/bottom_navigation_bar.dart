@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int currentIndex;
-  const AppBottomNavigationBar({Key? key, required this.currentIndex})
+  final changeScreen;
+  const AppBottomNavigationBar(
+      {Key? key, required this.currentIndex, required this.changeScreen})
       : super(key: key);
 
   @override
@@ -19,12 +21,7 @@ class AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: widget.currentIndex,
-      onTap: (value) => {
-        if (value == widget.currentIndex || value > screens.length - 1)
-          {}
-        else
-          {Navigator.pushNamed(context, screens[value])}
-      },
+      onTap: (value) => {widget.changeScreen(value)},
       showUnselectedLabels: true,
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: unselectedItemColor,

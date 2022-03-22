@@ -14,7 +14,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mAppBar('Browse'),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -24,9 +23,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: AppBottomNavigationBar(
-        currentIndex: 1,
       ),
     );
   }

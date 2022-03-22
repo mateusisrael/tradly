@@ -10,8 +10,29 @@ void main() {
   runApp(const TradlyApp());
 }
 
-class TradlyApp extends StatelessWidget {
+class TradlyApp extends StatefulWidget {
   const TradlyApp({Key? key}) : super(key: key);
+
+  @override
+  State<TradlyApp> createState() => _TradlyAppState();
+}
+
+class _TradlyAppState extends State<TradlyApp> {
+  int _currentScreen = 0;
+
+  final _screens = [Home(), BrowseScreen()];
+
+  handleChangeCurrentScreen(int value) {
+    if (value < _screens.length) {
+      setState(() {
+        _currentScreen = value;
+      });
+    }
+  }
+
+  _renderScreen() {
+    return _screens[_currentScreen];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +42,16 @@ class TradlyApp extends StatelessWidget {
             ));
 
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Home(),
-        '/browse': (context) => BrowseScreen()
-      },
       theme: defaultTheme,
       debugShowCheckedModeBanner: false,
       title: 'Tradly',
+      home: Scaffold(
+        appBar: mAppBar('Groceries'),
+        body: _renderScreen(),
+        bottomNavigationBar: AppBottomNavigationBar(
+            currentIndex: _currentScreen,
+            changeScreen: handleChangeCurrentScreen),
+      ),
     );
   }
 }

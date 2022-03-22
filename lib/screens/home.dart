@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_tradly/components/bottom_navigation_bar.dart';
 import 'package:material_tradly/components/category_group.dart';
-import 'package:material_tradly/components/m_app_bar.dart';
 import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/sub_status_bar.dart';
 
@@ -33,8 +31,6 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mAppBar('Groceries'),
-      bottomNavigationBar: const AppBottomNavigationBar(currentIndex: 0),
       body: SingleChildScrollView(
         child: Column(
           children: [
