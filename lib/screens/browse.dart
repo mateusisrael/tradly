@@ -1,4 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:material_tradly/components/m_app_bar.dart';
+import 'package:material_tradly/screens/home.dart';
 
 class BrowseScreen extends StatefulWidget {
   const BrowseScreen({Key? key}) : super(key: key);
@@ -10,8 +12,17 @@ class BrowseScreen extends StatefulWidget {
 class _BrowseScreenState extends State<BrowseScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Hello'),
-    );
+    return Scaffold(
+        appBar: mAppBar('Browse'),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SubStatusBar(),
+              Center(
+                child: Text('Browse'),
+              )
+            ],
+          ),
+        ));
   }
 }

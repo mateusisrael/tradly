@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:material_tradly/components/bottom_navigation_bar.dart';
 import 'package:material_tradly/components/category_group.dart';
+import 'package:material_tradly/components/m_app_bar.dart';
 import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/search_bar.dart';
 
@@ -30,37 +32,41 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SubStatusBar(),
-          const CardsScrow(),
-          GridView.count(
-            primary: false,
-            shrinkWrap: true,
-            // padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 1,
-            mainAxisSpacing: 1,
-            crossAxisCount: 4,
-            children: [
-              _gridContent('images/beverages.jpeg', 'Beverages'),
-              _gridContent('images/bread-and-bakery.jpeg', 'Bread & Bakery'),
-              _gridContent('images/vegetables.jpeg', 'Vegetables'),
-              _gridContent('images/fruit.jpeg', 'Fruit'),
-              _gridContent('images/egg.jpeg', 'Egg'),
-              _gridContent('images/frozen-veg.jpeg', 'Frozen veg'),
-              _gridContent('images/home-care.jpeg', 'Homecare'),
-              _gridContent('images/pet-care.jpeg', 'Pet Care'),
-            ],
-          ),
-          const CategoryGroup(
-            title: 'New Product',
-          ),
-          const CategoryGroup(title: 'Popular Product'),
-          Container(
-            height: 90,
-          )
-        ],
+    return Scaffold(
+      appBar: mAppBar('Groceries'),
+      bottomNavigationBar: const AppBottomNavigationBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SubStatusBar(),
+            const CardsScrow(),
+            GridView.count(
+              primary: false,
+              shrinkWrap: true,
+              // padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 1,
+              mainAxisSpacing: 1,
+              crossAxisCount: 4,
+              children: [
+                _gridContent('images/beverages.jpeg', 'Beverages'),
+                _gridContent('images/bread-and-bakery.jpeg', 'Bread & Bakery'),
+                _gridContent('images/vegetables.jpeg', 'Vegetables'),
+                _gridContent('images/fruit.jpeg', 'Fruit'),
+                _gridContent('images/egg.jpeg', 'Egg'),
+                _gridContent('images/frozen-veg.jpeg', 'Frozen veg'),
+                _gridContent('images/home-care.jpeg', 'Homecare'),
+                _gridContent('images/pet-care.jpeg', 'Pet Care'),
+              ],
+            ),
+            const CategoryGroup(
+              title: 'New Product',
+            ),
+            const CategoryGroup(title: 'Popular Product'),
+            Container(
+              height: 90,
+            )
+          ],
+        ),
       ),
     );
   }

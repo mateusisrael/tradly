@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_tradly/screens/browse.dart';
 import 'themes/default_theme.dart';
 import 'components/bottom_navigation_bar.dart';
 import 'components/m_app_bar.dart';
@@ -20,14 +21,9 @@ class TradlyApp extends StatelessWidget {
             ));
 
     return MaterialApp(
-      theme: defaultTheme,
-      debugShowCheckedModeBanner: false,
-      title: 'Tradly',
-      home: Scaffold(
-        appBar: mAppBar('Groceries'),
-        bottomNavigationBar: const AppBottomNavigationBar(),
-        body: const Home(),
-      ),
-    );
+        theme: defaultTheme,
+        debugShowCheckedModeBanner: false,
+        title: 'Tradly',
+        home: BrowseScreen());
   }
 }
