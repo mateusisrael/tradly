@@ -3,7 +3,7 @@ import 'package:material_tradly/components/bottom_navigation_bar.dart';
 import 'package:material_tradly/components/category_group.dart';
 import 'package:material_tradly/components/m_app_bar.dart';
 import 'package:material_tradly/components/row_cards.dart';
-import 'package:material_tradly/components/search_bar.dart';
+import 'package:material_tradly/components/sub_status_bar.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: mAppBar('Groceries'),
-      bottomNavigationBar: const AppBottomNavigationBar(),
+      bottomNavigationBar: const AppBottomNavigationBar(currentIndex: 0),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -69,25 +69,5 @@ class Home extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class SubStatusBar extends StatelessWidget {
-  const SubStatusBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // final primaryColor = Theme.of(context).primaryColor;
-    return Container(
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 16,
-        ),
-        width: double.infinity,
-        height: 64,
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-        ),
-        child: Column(children: const [SearchBar()]));
   }
 }

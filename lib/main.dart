@@ -21,9 +21,14 @@ class TradlyApp extends StatelessWidget {
             ));
 
     return MaterialApp(
-        theme: defaultTheme,
-        debugShowCheckedModeBanner: false,
-        title: 'Tradly',
-        home: BrowseScreen());
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/browse': (context) => BrowseScreen()
+      },
+      theme: defaultTheme,
+      debugShowCheckedModeBanner: false,
+      title: 'Tradly',
+    );
   }
 }
