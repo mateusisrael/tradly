@@ -10,6 +10,8 @@ class BrowseScreen extends StatefulWidget {
 class _BrowseScreenState extends State<BrowseScreen> {
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(child: Text('Hello'));
+    return const Center(
+      child: Text('Hello'),
+    );
   }
 }

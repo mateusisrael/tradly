@@ -2,10 +2,10 @@ TODO
   Add ícones de acordo com protótipo
   ajuste no layout do componente de lista de lojas loja
   bottom navigation bar - ajustar o padding do ícone quando ele está ativo
+  criar componente de rotas
 
 DOING
-  Remover o grupo "store to follow" da home
-  criar componente de rotas
+  organizar codigo
 
 
 DONE
@@ -17,3 +17,4 @@ DONE
   criar componente de grid da tela inicial
   criar componente de lista de produtos/lojas da home
   criar bottom navigation bar
+    Remover o grupo "store to follow" da home

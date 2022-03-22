@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'themes/default_theme.dart';
 import 'components/bottom_navigation_bar.dart';
+import 'components/m_app_bar.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -23,20 +24,7 @@ class TradlyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tradly',
       home: Scaffold(
-        appBar: AppBar(
-            elevation: 0,
-            toolbarHeight: 84,
-            actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.shopping_cart_rounded))
-            ],
-            systemOverlayStyle: SystemUiOverlayStyle.light,
-            title: const Text(
-              'Groceries',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            )),
+        appBar: mAppBar('Groceries'),
         bottomNavigationBar: const AppBottomNavigationBar(),
         body: const Home(),
       ),

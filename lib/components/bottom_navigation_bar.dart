@@ -9,11 +9,16 @@ class AppBottomNavigationBar extends StatefulWidget {
 
 class AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   final Color unselectedItemColor = const Color.fromRGBO(79, 79, 79, .5);
+  int selectedInd = 1;
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
+      currentIndex: selectedInd,
+      onTap: (value) => setState(() {
+        selectedInd = value;
+      }),
       showUnselectedLabels: true,
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: unselectedItemColor,
