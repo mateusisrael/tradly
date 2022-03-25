@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_tradly/components/product_card.dart';
 
 class CategoryGroup extends StatelessWidget {
   final bool? hasBackgroundColor;
@@ -7,94 +8,6 @@ class CategoryGroup extends StatelessWidget {
   const CategoryGroup(
       {Key? key, this.title = '', this.hasBackgroundColor = false})
       : super(key: key);
-
-  _box() {
-    const double borderRadiusValue = 10;
-    const BorderSide cardBorder = BorderSide(
-        color: Color.fromRGBO(0, 0, 0, 0.1),
-        width: 1,
-        style: BorderStyle.solid);
-    return Container(
-      margin: const EdgeInsets.only(right: 10, left: 10),
-      width: 160,
-      height: 300,
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          border: Border(
-              top: cardBorder,
-              right: cardBorder,
-              bottom: cardBorder,
-              left: cardBorder),
-          borderRadius: BorderRadius.all(Radius.circular(borderRadiusValue))),
-      child: Column(
-        children: [
-          Container(
-            height: 127,
-            decoration: const BoxDecoration(
-                color: Colors.black12,
-                image: DecorationImage(
-                    image: AssetImage('images/fish.png'), fit: BoxFit.contain),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(borderRadiusValue),
-                    topRight: Radius.circular(borderRadiusValue))),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                children: [
-                  Container(
-                    alignment: AlignmentDirectional.topStart,
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: const Text(
-                      'Fish',
-                      style: TextStyle(color: Color(0xff4A4A4A), fontSize: 14),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 20,
-                            height: 20,
-                            margin: const EdgeInsets.only(right: 5),
-                            decoration: const BoxDecoration(
-                                color: Colors.amber,
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(borderRadiusValue))),
-                            child: const Center(
-                              child: Text(
-                                'T',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          const Text(
-                            'Tradly',
-                            style: TextStyle(
-                                color: Color.fromRGBO(79, 79, 79, .5),
-                                fontSize: 14),
-                          )
-                        ],
-                      ),
-                      const Text(
-                        '\$25',
-                        style: TextStyle(
-                            color: Color(0xff33907C),
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
 
   Text _renderText() {
     if (hasBackgroundColor != null && hasBackgroundColor == true) {
@@ -181,12 +94,11 @@ class CategoryGroup extends StatelessWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        _box(),
-                        _box(),
-                        _box(),
-                        _box(),
-                        _box(),
-                        _box()
+                        ProductCard(
+                            id: 1,
+                            title: 'Teste',
+                            price: 10.2,
+                            image: 'qualquer')
                       ],
                     ))
               ],
