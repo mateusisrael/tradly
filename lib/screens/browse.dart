@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class Product {
   final int id;
   final String title;
-  final double price;
+  final price;
   final String image;
 
   Product(
@@ -25,30 +25,38 @@ class BrowseScreen extends StatefulWidget {
 }
 
 class _BrowseScreenState extends State<BrowseScreen> {
-  late Future<Product> product;
+  late Future<List<Product>> products;
 
-  Future<Product> _fetchProducts() async {
+  Future<List<Product>> _fetchProducts() async {
     final productsUri =
-        Uri(host: 'fakestoreapi.com', path: '/products/1', scheme: 'https');
+        Uri(host: 'fakestoreapi.com', path: '/products', scheme: 'https');
 
     var response = await http.get(productsUri);
-    print('RESPONSE $response.body');
 
-    final productJson = jsonDecode(response.body);
-    final p = Product(
-        id: productJson['id'],
-        title: productJson['title'],
-        price: productJson['price'],
-        image: productJson['image']);
+    List<Product> productsList = [];
 
-    return p;
+    var serializedResponseBody = jsonDecode(response.body);
+
+    for (var i = 0; i < serializedResponseBody.length; i++) {
+      var productJson = serializedResponseBody[i];
+      // final productJson = jsonDecode(response.body[i]);
+
+      final serializedProduct = Product(
+          id: productJson['id'],
+          title: productJson['title'],
+          price: productJson['price'],
+          image: productJson['image']);
+
+      productsList.add(serializedProduct);
+    }
+
+    return productsList;
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    product = _fetchProducts();
+    products = _fetchProducts();
   }
 
   @override
@@ -58,22 +66,37 @@ class _BrowseScreenState extends State<BrowseScreen> {
         child: Column(
           children: [
             const SubStatusBar(),
-            FutureBuilder<Product>(
-              future: product,
+            FutureBuilder<List<Product>>(
+              future: products,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return ProductCard(
-                      id: snapshot.data!.id,
-                      title: snapshot.data!.title,
-                      price: snapshot.data!.price,
-                      image: snapshot.data!.image);
+                  return GridView.count(
+                      padding: const EdgeInsets.only(
+                          top: 30, left: 23, right: 23, bottom: 84),
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      primary: false,
+                      scrollDirection: Axis.vertical,
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      children: snapshot.data!
+                          .map((product) => ProductCard(
+                              id: product.id,
+                              title: product.title,
+                              price: product.price,
+                              image: product.image))
+                          .toList());
                 } else if (snapshot.hasError) {
-                  const Text('Error');
+                  return const Text('Algo deu errado');
                 }
 
-                return const CircularProgressIndicator();
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                );
               },
-            )
+            ),
           ],
         ),
       ),

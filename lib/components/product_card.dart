@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final int id;
   final String title;
-  final double price;
+  final price;
   final String image;
 
   const ProductCard(
@@ -21,9 +21,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 10, left: 10),
+      // margin: const EdgeInsets.only(right: 10, left: 10),
       width: 160,
-      height: 300,
+      height: 500,
       decoration: const BoxDecoration(
           color: Colors.white,
           border: Border(
@@ -35,14 +35,14 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            child: Image.network(image),
             height: 127,
-            // decoration: BoxDecoration(
-            //     color: Colors.black12,
-            //     image: DecorationImage(
-            //         image: Image.network('htttp://localhost:300', scale: ,), fit: BoxFit.contain),
-            //     borderRadius: BorderRadius.only(
-            //         topLeft: Radius.circular(borderRadiusValue),
-            //         topRight: Radius.circular(borderRadiusValue))),
+            decoration: const BoxDecoration(
+                // image: DecorationImage(
+                //     image: Image.network('htttp://localhost:300', scale: ,), fit: BoxFit.contain),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(borderRadiusValue),
+                    topRight: Radius.circular(borderRadiusValue))),
           ),
           Expanded(
             child: Padding(
@@ -53,8 +53,9 @@ class ProductCard extends StatelessWidget {
                     alignment: AlignmentDirectional.topStart,
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Text(
-                      title,
-                      style: TextStyle(color: Color(0xff4A4A4A), fontSize: 14),
+                      'title',
+                      style: const TextStyle(
+                          color: Color(0xff4A4A4A), fontSize: 14),
                     ),
                   ),
                   Row(
@@ -86,8 +87,8 @@ class ProductCard extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        "\$${price}",
-                        style: TextStyle(
+                        "\$$price",
+                        style: const TextStyle(
                             color: Color(0xff33907C),
                             fontWeight: FontWeight.bold),
                       )

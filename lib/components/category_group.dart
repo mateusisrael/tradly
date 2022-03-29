@@ -93,12 +93,13 @@ class CategoryGroup extends StatelessWidget {
                     height: 210,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      children: [
+                      children: const [
                         ProductCard(
                             id: 1,
                             title: 'Teste',
                             price: 10.2,
-                            image: 'qualquer')
+                            image:
+                                'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg')
                       ],
                     ))
               ],
