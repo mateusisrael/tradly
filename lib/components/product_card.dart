@@ -5,13 +5,15 @@ class ProductCard extends StatelessWidget {
   final String title;
   final price;
   final String image;
+  final bool imageMargin;
 
   const ProductCard(
       {Key? key,
       required this.id,
       required this.title,
       required this.price,
-      required this.image})
+      required this.image,
+      this.imageMargin = false})
       : super(key: key);
 
   static const double borderRadiusValue = 10;
@@ -36,10 +38,11 @@ class ProductCard extends StatelessWidget {
         children: [
           Container(
             child: Image.network(image),
+            margin: imageMargin
+                ? const EdgeInsets.all(10)
+                : const EdgeInsets.all(0),
             height: 127,
             decoration: const BoxDecoration(
-                // image: DecorationImage(
-                //     image: Image.network('htttp://localhost:300', scale: ,), fit: BoxFit.contain),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(borderRadiusValue),
                     topRight: Radius.circular(borderRadiusValue))),
@@ -52,10 +55,9 @@ class ProductCard extends StatelessWidget {
                   Container(
                     alignment: AlignmentDirectional.topStart,
                     padding: const EdgeInsets.only(bottom: 16),
-                    child: Text(
+                    child: const Text(
                       'title',
-                      style: const TextStyle(
-                          color: Color(0xff4A4A4A), fontSize: 14),
+                      style: TextStyle(color: Color(0xff4A4A4A), fontSize: 14),
                     ),
                   ),
                   Row(

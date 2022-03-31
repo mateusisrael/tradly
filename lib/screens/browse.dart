@@ -74,6 +74,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
                       padding: const EdgeInsets.only(
                           top: 30, left: 23, right: 23, bottom: 84),
                       crossAxisSpacing: 10,
+                      childAspectRatio: 2.2 / 3,
                       mainAxisSpacing: 10,
                       primary: false,
                       scrollDirection: Axis.vertical,
@@ -81,6 +82,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
                       shrinkWrap: true,
                       children: snapshot.data!
                           .map((product) => ProductCard(
+                              imageMargin: true,
                               id: product.id,
                               title: product.title,
                               price: product.price,
