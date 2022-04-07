@@ -28,8 +28,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
   late Future<List<Product>> products;
 
   Future<List<Product>> _fetchProducts() async {
-    final productsUri =
-        Uri(host: 'fakestoreapi.com', path: '/products', scheme: 'https');
+    final productsUri = Uri.parse('https://fakestoreapi.com/products');
 
     var response = await http.get(productsUri);
 
@@ -89,7 +88,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
                               image: product.image))
                           .toList());
                 } else if (snapshot.hasError) {
-                  return const Text('Algo deu errado');
+                  return Text(snapshot.error.toString());
                 }
 
                 return Center(
