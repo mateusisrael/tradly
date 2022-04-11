@@ -3,13 +3,15 @@ TODO
   ajuste no layout do componente de lista de lojas loja
 
   criar componente de rotas
-  Tratar possíveis erros nas Imagem.network
+  criar tela do produto
+  organizar codigo
 
 DOING
-  organizar codigo
+  Carregar produtos da api na tela inicial
 
 
 DONE
+  Tratar possíveis erros nas Imagem.network
   Setar a cor do botão "view all" de acordo com o atributo hasBackgroundColor
   criar componente de tema com cor primaria
   ajustar topBar de acordo com o protótipo 

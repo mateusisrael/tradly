@@ -1,21 +1,9 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:material_tradly/components/product_card.dart';
 import 'package:material_tradly/components/sub_status_bar.dart';
-import 'package:http/http.dart' as http;
 
-class Product {
-  final int id;
-  final String title;
-  final price;
-  final String image;
-
-  Product(
-      {required this.id,
-      required this.title,
-      required this.price,
-      required this.image});
-}
+import '../types/product.dart';
+import '../utils/fetch.dart';
 
 class BrowseScreen extends StatefulWidget {
   const BrowseScreen({Key? key}) : super(key: key);
@@ -27,36 +15,10 @@ class BrowseScreen extends StatefulWidget {
 class _BrowseScreenState extends State<BrowseScreen> {
   late Future<List<Product>> products;
 
-  Future<List<Product>> _fetchProducts() async {
-    try {} catch (e) {}
-    final productsUri = Uri.parse('https://fakestoreapi.com/products');
-
-    var response = await http.get(productsUri);
-
-    List<Product> productsList = [];
-
-    var serializedResponseBody = jsonDecode(response.body);
-
-    for (var i = 0; i < serializedResponseBody.length; i++) {
-      var productJson = serializedResponseBody[i];
-      // final productJson = jsonDecode(response.body[i]);
-
-      final serializedProduct = Product(
-          id: productJson['id'],
-          title: productJson['title'],
-          price: productJson['price'],
-          image: productJson['image']);
-
-      productsList.add(serializedProduct);
-    }
-
-    return productsList;
-  }
-
   @override
   void initState() {
     super.initState();
-    products = _fetchProducts();
+    products = fetchProducts();
   }
 
   @override
