@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:material_tradly/components/product_card.dart';
 
+import '../types/product.dart';
+
 class CategoryGroup extends StatelessWidget {
   final bool? hasBackgroundColor;
   final String title;
+  final List<Product> products;
 
   const CategoryGroup(
-      {Key? key, this.title = '', this.hasBackgroundColor = false})
+      {Key? key,
+      this.title = '',
+      this.hasBackgroundColor = false,
+      required this.products})
       : super(key: key);
 
   Text _renderText() {
@@ -88,20 +94,25 @@ class CategoryGroup extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                Container(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
                     // color: Colors.amber[100],
                     height: 210,
                     child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        ProductCard(
-                            id: 1,
-                            title: 'Teste',
-                            price: 10.2,
-                            image:
-                                'https://i2.wp.com/gatinhobranco.com/wp-content/uploads/2020/04/vitrine-do-bem-gatos-Photo-by-Stratman.jpg?fit=800%2C515')
-                      ],
-                    ))
+                        scrollDirection: Axis.horizontal,
+                        children: products
+                            .map(
+                              (Product product) => Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8, right: 8),
+                                child: ProductCard(
+                                    id: product.id,
+                                    title: product.title,
+                                    price: product.price,
+                                    image: product.image),
+                              ),
+                            )
+                            .toList())),
               ],
             )
           ],

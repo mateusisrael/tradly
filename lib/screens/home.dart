@@ -4,14 +4,33 @@ import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/sub_status_bar.dart';
 import 'package:material_tradly/components/grid_content.dart';
 
+import '../types/product.dart';
+import '../utils/fetch.dart';
+
 class GridCell {
   final String imgPath;
   final String title;
   GridCell(this.imgPath, this.title);
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late Future<List<Product>> newProducts;
+  late Future<List<Product>> popularProducts;
+
+  @override
+  void initState() {
+    super.initState();
+
+    newProducts = fetchProducts(limit: 4);
+    popularProducts = fetchProducts(limit: 8);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +61,37 @@ class Home extends StatelessWidget {
                 children: gridContentArray
                     .map((i) => GridContent(imgPath: i.imgPath, title: i.title))
                     .toList()),
-            const CategoryGroup(
-              title: 'New Product',
-            ),
-            const CategoryGroup(title: 'Popular Product'),
+            FutureBuilder<List<Product>>(
+                future: newProducts,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return CategoryGroup(
+                      products: snapshot.data!,
+                      title: 'New Product',
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Text(
+                        'Ops, houve um erro ao tentar carregar o conteúdo!');
+                  }
+                  return const Text('Carregando');
+                }),
+
+            FutureBuilder<List<Product>>(
+                future: popularProducts,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return CategoryGroup(
+                      products: snapshot.data!,
+                      title: 'Popular Products',
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Text(
+                        'Ops, houve um erro ao tentar carregar o conteúdo!');
+                  }
+                  return const Text('Carregando');
+                }),
+
+            // const CategoryGroup(title: 'Popular Product'),
             Container(
               height: 90,
             )
