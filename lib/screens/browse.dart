@@ -28,6 +28,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
   late Future<List<Product>> products;
 
   Future<List<Product>> _fetchProducts() async {
+    try {} catch (e) {}
     final productsUri = Uri.parse('https://fakestoreapi.com/products');
 
     var response = await http.get(productsUri);
@@ -62,43 +63,50 @@ class _BrowseScreenState extends State<BrowseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SubStatusBar(),
-            FutureBuilder<List<Product>>(
-              future: products,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return GridView.count(
-                      padding: const EdgeInsets.only(
-                          top: 30, left: 23, right: 23, bottom: 84),
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 2.2 / 3,
-                      mainAxisSpacing: 10,
-                      primary: false,
-                      scrollDirection: Axis.vertical,
-                      crossAxisCount: 2,
-                      shrinkWrap: true,
-                      children: snapshot.data!
-                          .map((product) => ProductCard(
-                              imageMargin: true,
-                              id: product.id,
-                              title: product.title,
-                              price: product.price,
-                              image: product.image))
-                          .toList());
-                } else if (snapshot.hasError) {
-                  return Text(snapshot.error.toString());
-                }
+        child: Expanded(
+          child: Column(
+            // mainAxisSize: MainAxisSize.max,
+            children: [
+              const SubStatusBar(),
+              FutureBuilder<List<Product>>(
+                future: products,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return GridView.count(
+                        padding: const EdgeInsets.only(
+                            top: 30, left: 23, right: 23, bottom: 84),
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 2.2 / 3,
+                        mainAxisSpacing: 10,
+                        primary: false,
+                        scrollDirection: Axis.vertical,
+                        crossAxisCount: 2,
+                        shrinkWrap: true,
+                        children: snapshot.data!
+                            .map((product) => ProductCard(
+                                imageMargin: true,
+                                id: product.id,
+                                title: product.title,
+                                price: product.price,
+                                image: product.image))
+                            .toList());
+                  } else if (snapshot.hasError) {
+                    return const Text(
+                        'Ops! Houve um erro ao carregar o conteúdo');
+                  }
 
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).primaryColor,
-                  ),
-                );
-              },
-            ),
-          ],
+                  return SizedBox(
+                    height: 500,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -99,7 +99,7 @@ class CategoryGroup extends StatelessWidget {
                             title: 'Teste',
                             price: 10.2,
                             image:
-                                'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg')
+                                'https://i2.wp.com/gatinhobranco.com/wp-content/uploads/2020/04/vitrine-do-bem-gatos-Photo-by-Stratman.jpg?fit=800%2C515')
                       ],
                     ))
               ],
