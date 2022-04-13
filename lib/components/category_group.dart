@@ -97,7 +97,7 @@ class CategoryGroup extends StatelessWidget {
                 Container(
                     padding: const EdgeInsets.only(left: 8, right: 8),
                     // color: Colors.amber[100],
-                    height: 210,
+                    height: 230,
                     child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: products
@@ -106,6 +106,7 @@ class CategoryGroup extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 8, right: 8),
                                 child: ProductCard(
+                                    imageMargin: true,
                                     id: product.id,
                                     title: product.title,
                                     price: product.price,
