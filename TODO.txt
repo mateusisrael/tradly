@@ -6,8 +6,18 @@ TODO
   criar tela do produto
   organizar codigo
 
+  Filtro:
+    [Filtro] Desenhar filtro
+    [Filtro] Implementar filtro na tela de Produtos(Browse)
+
+  NOVA API:
+    [API] fazer GET na url de cada produto retornado
+    [API] passar a URL da imagem do produto pro componente de imagem
+    [API] Implementar paginação na tela 'Browse'
+
+
 DOING
-  Carregar produtos da api na tela inicial
+  [API] fazer GET no endpoint de produtos
 
 
 DONE
@@ -22,3 +32,4 @@ DONE
   criar bottom navigation bar
   Remover o grupo "store to follow" da home
   bottom navigation bar - ajustar o padding do ícone quando ele está ativo
+  Carregar produtos da api na tela inicial

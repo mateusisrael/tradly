@@ -94,26 +94,29 @@ class CategoryGroup extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                    padding: const EdgeInsets.only(left: 8, right: 8),
-                    // color: Colors.amber[100],
-                    height: 230,
-                    child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: products
-                            .map(
-                              (Product product) => Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, right: 8),
-                                child: ProductCard(
-                                    imageMargin: true,
-                                    id: product.id,
-                                    title: product.title,
-                                    price: product.price,
-                                    image: product.image),
-                              ),
-                            )
-                            .toList())),
+                AspectRatio(
+                  aspectRatio: 2.5,
+                  child: Container(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      // color: Colors.amber[100],
+
+                      child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: products
+                              .map(
+                                (Product product) => Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 8, right: 8),
+                                  child: ProductCard(
+                                      imageMargin: true,
+                                      id: product.id,
+                                      title: product.title,
+                                      price: product.price,
+                                      image: product.image),
+                                ),
+                              )
+                              .toList())),
+                ),
               ],
             )
           ],
