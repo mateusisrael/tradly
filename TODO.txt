@@ -1,6 +1,6 @@
 TODO
   Add ícones de acordo com protótipo
-  ajuste no layout do componente de lista de lojas loja
+  ajuste no layout do componente de lista de lojas
 
   criar componente de rotas
   criar tela do produto
@@ -11,16 +11,19 @@ TODO
     [Filtro] Implementar filtro na tela de Produtos(Browse)
 
   NOVA API:
-    [API] fazer GET na url de cada produto retornado
-    [API] passar a URL da imagem do produto pro componente de imagem
     [API] Implementar paginação na tela 'Browse'
 
 
+
 DOING
-  [API] fazer GET no endpoint de produtos
+  Definir tamanho mínimo pro componente de grupo de produtos
+  
 
 
 DONE
+  [API] fazer GET no endpoint de produtos
+  [API] fazer GET na url de cada produto retornado
+  [API] passar a URL da imagem do produto pro componente de imagem
   Tratar possíveis erros nas Imagem.network
   Setar a cor do botão "view all" de acordo com o atributo hasBackgroundColor
   criar componente de tema com cor primaria

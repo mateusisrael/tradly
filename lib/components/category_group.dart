@@ -95,7 +95,7 @@ class CategoryGroup extends StatelessWidget {
                   ),
                 ),
                 AspectRatio(
-                  aspectRatio: 2.5,
+                  aspectRatio: 2,
                   child: Container(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       // color: Colors.amber[100],
@@ -108,7 +108,6 @@ class CategoryGroup extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.only(left: 8, right: 8),
                                   child: ProductCard(
-                                      imageMargin: true,
                                       title: product.name,
                                       price: product.price,
                                       image: product.photoUrl),

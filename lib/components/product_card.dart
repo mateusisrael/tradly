@@ -41,25 +41,26 @@ class ProductCard extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                child: Image.network(image,
-                    frameBuilder: (BuildContext context, Widget child,
-                        int? frame, bool wasSynchronouslyLoaded) {
-                      if (wasSynchronouslyLoaded) {
-                        return child;
-                      }
-                      return AnimatedOpacity(
-                        opacity: frame == null ? 0 : 1,
-                        duration: const Duration(seconds: 1),
-                        child: child,
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) => imageError()),
+                // child: Image.network(image,
+                //     frameBuilder: (BuildContext context, Widget child, int? frame,
+                //         bool wasSynchronouslyLoaded) {
+                //       if (wasSynchronouslyLoaded) {
+                //         return child;
+                //       }
+                //       return AnimatedOpacity(
+                //         opacity: frame == null ? 0 : 1,
+                //         duration: const Duration(seconds: 1),
+                //         child: child,
+                //       );
+                //     },
+                //     errorBuilder: (context, error, stackTrace) => imageError()),
                 margin: imageMargin
                     ? const EdgeInsets.all(10)
                     : const EdgeInsets.all(0),
-                // height: 127,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover, image: NetworkImage(image)),
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(borderRadiusValue),
                         topRight: Radius.circular(borderRadiusValue))),
               ),
@@ -71,9 +72,10 @@ class ProductCard extends StatelessWidget {
                   Container(
                     alignment: AlignmentDirectional.topStart,
                     padding: const EdgeInsets.only(bottom: 16),
-                    child: const Text(
-                      "title",
-                      style: TextStyle(color: Color(0xff4A4A4A), fontSize: 14),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                          color: Color(0xff4A4A4A), fontSize: 14),
                     ),
                   ),
                   Row(

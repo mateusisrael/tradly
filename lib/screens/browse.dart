@@ -46,7 +46,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
                         shrinkWrap: true,
                         children: snapshot.data!
                             .map((product) => ProductCard(
-                                imageMargin: true,
                                 title: product.name,
                                 price: product.price,
                                 image: product.photoUrl))
