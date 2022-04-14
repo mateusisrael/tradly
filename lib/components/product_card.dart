@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_tradly/components/image_error_builder.dart';
 
 class ProductCard extends StatelessWidget {
-  final int id;
+  // final int id;
   final String title;
   final price;
   final String image;
@@ -10,7 +10,7 @@ class ProductCard extends StatelessWidget {
 
   const ProductCard(
       {Key? key,
-      required this.id,
+      // required this.id,
       required this.title,
       required this.price,
       required this.image,

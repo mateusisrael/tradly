@@ -109,10 +109,9 @@ class CategoryGroup extends StatelessWidget {
                                       const EdgeInsets.only(left: 8, right: 8),
                                   child: ProductCard(
                                       imageMargin: true,
-                                      id: product.id,
-                                      title: product.title,
+                                      title: product.name,
                                       price: product.price,
-                                      image: product.image),
+                                      image: product.photoUrl),
                                 ),
                               )
                               .toList())),

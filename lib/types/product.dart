@@ -1,12 +1,14 @@
 class Product {
-  final int id;
-  final String title;
+  final String name;
   final price;
-  final String image;
+  final String photoUrl;
+  final String categoryUrl;
+  final String vendorUrl;
 
   Product(
-      {required this.id,
-      required this.title,
+      {required this.name,
       required this.price,
-      required this.image});
+      required this.photoUrl,
+      required this.categoryUrl,
+      required this.vendorUrl});
 }

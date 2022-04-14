@@ -47,10 +47,9 @@ class _BrowseScreenState extends State<BrowseScreen> {
                         children: snapshot.data!
                             .map((product) => ProductCard(
                                 imageMargin: true,
-                                id: product.id,
-                                title: product.title,
+                                title: product.name,
                                 price: product.price,
-                                image: product.image))
+                                image: product.photoUrl))
                             .toList());
                   } else if (snapshot.hasError) {
                     return const Text(
