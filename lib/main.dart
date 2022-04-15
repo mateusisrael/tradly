@@ -47,7 +47,10 @@ class _TradlyAppState extends State<TradlyApp> {
       title: 'Tradly',
       home: Scaffold(
         appBar: mAppBar('Groceries'),
-        body: _renderScreen(),
+        body: IndexedStack(
+          index: _currentScreen,
+          children: _screens,
+        ),
         bottomNavigationBar: AppBottomNavigationBar(
             currentIndex: _currentScreen,
             changeScreen: handleChangeCurrentScreen),

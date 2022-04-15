@@ -3,7 +3,6 @@ TODO
   ajuste no layout do componente de lista de lojas
 
   criar componente de rotas
-  criar tela do produto
   organizar codigo
 
   Filtro:
@@ -13,14 +12,16 @@ TODO
   NOVA API:
     [API] Implementar paginação na tela 'Browse'
 
+  criar tela do carrinho
 
 
 DOING
-  Definir tamanho mínimo pro componente de grupo de produtos
+  criar tela do produto
   
 
 
 DONE
+  Definir tamanho mínimo pro componente de grupo de produtos
   [API] fazer GET no endpoint de produtos
   [API] fazer GET na url de cada produto retornado
   [API] passar a URL da imagem do produto pro componente de imagem
