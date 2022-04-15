@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:material_tradly/screens/browse.dart';
+import 'screens/browse.dart';
+import 'screens/product.dart';
 import 'themes/default_theme.dart';
 import 'components/bottom_navigation_bar.dart';
 import 'components/m_app_bar.dart';
@@ -20,7 +21,7 @@ class TradlyApp extends StatefulWidget {
 class _TradlyAppState extends State<TradlyApp> {
   int _currentScreen = 0;
 
-  final _screens = [Home(), BrowseScreen()];
+  final _screens = [Home(), BrowseScreen(), ProductScreen()];
 
   handleChangeCurrentScreen(int value) {
     if (value < _screens.length) {
@@ -28,10 +29,6 @@ class _TradlyAppState extends State<TradlyApp> {
         _currentScreen = value;
       });
     }
-  }
-
-  _renderScreen() {
-    return _screens[_currentScreen];
   }
 
   @override

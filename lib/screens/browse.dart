@@ -25,48 +25,46 @@ class _BrowseScreenState extends State<BrowseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            // mainAxisSize: MainAxisSize.max,
-            children: [
-              const SubStatusBar(),
-              FutureBuilder<List<Product>>(
-                future: products,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return GridView.count(
-                        padding: const EdgeInsets.only(
-                            top: 30, left: 23, right: 23, bottom: 84),
-                        crossAxisSpacing: 10,
-                        childAspectRatio: 2.2 / 3,
-                        mainAxisSpacing: 10,
-                        primary: false,
-                        scrollDirection: Axis.vertical,
-                        crossAxisCount: 2,
-                        shrinkWrap: true,
-                        children: snapshot.data!
-                            .map((product) => ProductCard(
-                                title: product.name,
-                                price: product.price,
-                                image: product.photoUrl))
-                            .toList());
-                  } else if (snapshot.hasError) {
-                    return const Text(
-                        'Ops! Houve um erro ao carregar o conteúdo');
-                  }
+        child: Column(
+          // mainAxisSize: MainAxisSize.max,
+          children: [
+            const SubStatusBar(),
+            FutureBuilder<List<Product>>(
+              future: products,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return GridView.count(
+                      padding: const EdgeInsets.only(
+                          top: 30, left: 23, right: 23, bottom: 84),
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 2.2 / 3,
+                      mainAxisSpacing: 10,
+                      primary: false,
+                      scrollDirection: Axis.vertical,
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      children: snapshot.data!
+                          .map((product) => ProductCard(
+                              title: product.name,
+                              price: product.price,
+                              image: product.photoUrl))
+                          .toList());
+                } else if (snapshot.hasError) {
+                  return const Text(
+                      'Ops! Houve um erro ao carregar o conteúdo');
+                }
 
-                  return SizedBox(
-                    height: 500,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        color: Theme.of(context).primaryColor,
-                      ),
+                return SizedBox(
+                  height: 500,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: Theme.of(context).primaryColor,
                     ),
-                  );
-                },
-              ),
-            ],
-          ),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
