@@ -108,9 +108,12 @@ class CategoryGroup extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.only(left: 8, right: 8),
                                   child: ProductCard(
-                                      title: product.name,
-                                      price: product.price,
-                                      image: product.photoUrl),
+                                    title: product.name,
+                                    price: product.price,
+                                    image: product.photoUrl,
+                                    vendorUrl: product.vendorUrl,
+                                    categoryUrl: product.categoryUrl,
+                                  ),
                                 ),
                               )
                               .toList())),
