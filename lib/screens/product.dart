@@ -44,21 +44,19 @@ class _ProductScreenState extends State<ProductScreen> {
                   Container(
                       color: const Color(0xffE5E5E5),
                       height: constraints.maxHeight - 88,
-                      child: Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              _ImgContainer(imgUrl: productData.photoUrl),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: paddingBetweenCards),
-                                child: _MainDetails(
-                                    title: productData.name,
-                                    price: productData.price.toString()),
-                              ),
-                              _textContainer(),
-                            ],
-                          ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            _ImgContainer(imgUrl: productData.photoUrl),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  bottom: paddingBetweenCards),
+                              child: _MainDetails(
+                                  title: productData.name,
+                                  price: productData.price.toString()),
+                            ),
+                            _textContainer(),
+                          ],
                         ),
                       )),
                   const _BottomBar(),

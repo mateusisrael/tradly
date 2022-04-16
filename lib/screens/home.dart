@@ -28,8 +28,8 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
-    newProducts = fetchProducts(limit: 4);
-    popularProducts = fetchProducts(limit: 8);
+    newProducts = fetchProducts();
+    popularProducts = fetchProducts();
   }
 
   @override
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                     return const Text(
                         'Ops, houve um erro ao tentar carregar o conteúdo!');
                   }
-                  return const Text('Carregando');
+                  return const LoadingContainer();
                 }),
 
             FutureBuilder<List<Product>>(
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                     return const Text(
                         'Ops, houve um erro ao tentar carregar o conteúdo!');
                   }
-                  return const Text('Carregando');
+                  return const LoadingContainer();
                 }),
 
             // const CategoryGroup(title: 'Popular Product'),
@@ -97,6 +97,21 @@ class _HomeState extends State<Home> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LoadingContainer extends StatelessWidget {
+  const LoadingContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 2,
+      child: Container(
+        margin: const EdgeInsets.only(top: 27),
+        color: Colors.black26,
       ),
     );
   }

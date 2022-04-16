@@ -2,12 +2,14 @@ import 'dart:convert';
 import '../types/product.dart';
 import 'package:http/http.dart' as http;
 
-Future<List<Product>> fetchProducts({int offset = 0, int? limit}) async {
+Future<List<Product>> fetchProducts(
+    {String? route, int offset = 0, int? limit}) async {
   const URI = "https://api.predic8.de";
+  final urlToGetProducts = route != null ? "$URI$route" : "$URI/shop/products/";
   const BACKUP_IMG =
       'https://igp.rs.gov.br/themes/modelo-noticias/images/outros/GD_imgSemImagem.png';
 
-  final productsUri = Uri.parse("$URI/shop/products/");
+  final productsUri = Uri.parse(urlToGetProducts);
   var response = await http.get(productsUri);
 
   var products = jsonDecode(response.body)["products"];
