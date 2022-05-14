@@ -70,8 +70,9 @@ class _HomeState extends State<Home> {
                       title: 'New Product',
                     );
                   } else if (snapshot.hasError) {
-                    return const Text(
-                        'Ops, houve um erro ao tentar carregar o conteúdo!');
+                    return const ErrorContainer(
+                        text:
+                            'Ops, houve um erro ao tentar carregar o conteúdo!');
                   }
                   return const LoadingContainer();
                 }),
