@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_tradly/components/product_card.dart';
 import 'package:material_tradly/components/sub_status_bar.dart';
 
+import '../components/error_container.dart';
 import '../types/product.dart';
 import '../utils/fetch.dart';
 
@@ -53,8 +54,16 @@ class _BrowseScreenState extends State<BrowseScreen> {
                               ))
                           .toList());
                 } else if (snapshot.hasError) {
-                  return const Text(
-                      'Ops! Houve um erro ao carregar o conteúdo');
+                  return ErrorContainer(
+                    text: 'Ops, houve um erro ao tentar carregar o conteúdo!',
+                    textButton: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            products = fetchProducts();
+                          });
+                        },
+                        child: const Text('Reload')),
+                  );
                 }
 
                 return SizedBox(

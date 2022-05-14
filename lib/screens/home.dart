@@ -4,6 +4,7 @@ import 'package:material_tradly/components/row_cards.dart';
 import 'package:material_tradly/components/sub_status_bar.dart';
 import 'package:material_tradly/components/grid_content.dart';
 
+import '../components/error_container.dart';
 import '../types/product.dart';
 import '../utils/fetch.dart';
 
@@ -15,7 +16,6 @@ class GridCell {
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
@@ -70,9 +70,16 @@ class _HomeState extends State<Home> {
                       title: 'New Product',
                     );
                   } else if (snapshot.hasError) {
-                    return const ErrorContainer(
-                        text:
-                            'Ops, houve um erro ao tentar carregar o conteúdo!');
+                    return ErrorContainer(
+                      text: 'Ops, houve um erro ao tentar carregar o conteúdo!',
+                      textButton: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              popularProducts = fetchProducts();
+                            });
+                          },
+                          child: const Text('Reload')),
+                    );
                   }
                   return const LoadingContainer();
                 }),
@@ -86,9 +93,16 @@ class _HomeState extends State<Home> {
                       title: 'Popular Products',
                     );
                   } else if (snapshot.hasError) {
-                    return const ErrorContainer(
-                        text:
-                            'Ops, houve um erro ao tentar carregar o conteúdo!');
+                    return ErrorContainer(
+                      text: 'Ops, houve um erro ao tentar carregar o conteúdo!',
+                      textButton: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              popularProducts = fetchProducts();
+                            });
+                          },
+                          child: const Text('Reload')),
+                    );
                   }
                   return const LoadingContainer();
                 }),
@@ -114,24 +128,6 @@ class LoadingContainer extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 27),
         color: Colors.black26,
-      ),
-    );
-  }
-}
-
-class ErrorContainer extends StatelessWidget {
-  final String text;
-  const ErrorContainer({Key? key, required this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 27),
-        child: Center(
-          child: Text(text),
-        ),
       ),
     );
   }
