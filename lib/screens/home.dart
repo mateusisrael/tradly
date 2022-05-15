@@ -88,10 +88,11 @@ class _HomeState extends State<Home> {
                 future: popularProducts,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return CategoryGroup(
-                      products: snapshot.data!,
-                      title: 'Popular Products',
-                    );
+                    // return CategoryGroup(
+                    //   products: snapshot.data!,
+                    //   title: 'Popular Products',
+                    // );
+                    return const LoadingContainer();
                   } else if (snapshot.hasError) {
                     return ErrorContainer(
                       text: 'Ops, houve um erro ao tentar carregar o conteúdo!',
@@ -118,17 +119,49 @@ class _HomeState extends State<Home> {
   }
 }
 
-class LoadingContainer extends StatelessWidget {
+class LoadingContainer extends StatefulWidget {
   const LoadingContainer({Key? key}) : super(key: key);
+
+  @override
+  State<LoadingContainer> createState() => _LoadingContainerState();
+}
+
+class _LoadingContainerState extends State<LoadingContainer>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller =
+      AnimationController(duration: const Duration(seconds: 1), vsync: this)
+        ..repeat(reverse: false);
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2,
       child: Container(
-        margin: const EdgeInsets.only(top: 27),
-        color: Colors.black26,
-      ),
+          color: Colors.white,
+          margin: const EdgeInsets.only(top: 27),
+          child: Stack(children: [
+            PositionedTransition(
+                rect: RelativeRectTween(
+                        begin: const RelativeRect.fromLTRB(0, 0, 350, 0),
+                        end: const RelativeRect.fromLTRB(350, 0, 0, 0))
+                    .animate(CurvedAnimation(
+                        parent: _controller, curve: Curves.easeOut)),
+                child: Container(
+                  decoration: const BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(232, 245, 233, 1),
+                      blurRadius: 20,
+                      spreadRadius: 5,
+                    )
+                  ]),
+                ))
+          ])),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
