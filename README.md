@@ -3,6 +3,9 @@
 ## Sobre
 Projeto criado com o intuito de exercitar meus conhecimentos em Flutter. 
 
+Prints das telas
+![](./app-screens.png)
+
 Algumas das funcionalidades / técnicas que usei foram:
 - Criação de componentes (com e sem estado)
 - Manipulação de estado do APP
